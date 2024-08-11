@@ -11,7 +11,7 @@ import { ItemForm } from '@/components/dashboard/ItemForm';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const ItemEditPage = async ({
+const ItemEditPage = async ({
   params: { itemId },
 }: {
   params: { itemId: string };

@@ -8,12 +8,15 @@ const AdminLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="grid min-h-screen md:grid-cols-[230px_1fr]">
-      <div className="bg-slate-800 text-slate-50">
+    <div className="min-h-screen grid md:grid-cols-[260px_1fr]">
+      <div className="hidden md:block bg-slate-800 text-slate-50">
         <Sidebar />
       </div>
       <main>
-        <Header />
+        {/* <div className="hidden md:block"> */}
+          <Header />
+        {/* </div> */}
+
         {children}
       </main>
     </div>

@@ -19,7 +19,7 @@ export const ActivityCard = ({
   return (
     <li
       key={text}
-      className="bg-white px-2 py-6 rounded-md hover:border-blue-400 border shadow"
+      className="bg-white px-2 py-6 rounded-md hover:border-violet-400 border shadow"
     >
       <Link href={href} className="mb-4 grid justify-center">
         <span className="text-4xl font-semibold">{number}</span>

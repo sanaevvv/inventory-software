@@ -48,12 +48,19 @@ const InventorySummary = [
 
 export const SalesOverview = () => {
   return (
-    <section className="flex gap-8 py-10 px-8 bg-sky-50">
+    <section className="flex gap-8 py-10 px-8 bg-[#F6F6FF]">
       <div className="">
         <h2 className="text-2xl text-slate-800 mb-6">Sales Activity</h2>
         <ul className="grid grid-cols-4 gap-4">
           {Activities.map(({ number, unit, icon, text, href }) => (
-            <ActivityCard key={text} number={number} unit={unit} icon={icon} text={text} href={href} />
+            <ActivityCard
+              key={text}
+              number={number}
+              unit={unit}
+              icon={icon}
+              text={text}
+              href={href}
+            />
           ))}
         </ul>
       </div>

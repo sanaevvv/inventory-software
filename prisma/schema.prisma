@@ -1,0 +1,151 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model User {
+//   id    Int    @id @default(autoincrement())
+//   name  String @unique
+//   email String @unique
+
+// }
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique @db.VarChar(255)
+  description String?
+  item        Item[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Unit {
+  id           Int      @id @default(autoincrement())
+  title        String   @unique @db.VarChar(255)
+  abbreviation String
+  item         Item[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Brand {
+  id        Int      @id @default(autoincrement())
+  brandname String   @unique @db.VarChar(255)
+  items     Item[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Warehouse {
+  id                          Int                       @id @default(autoincrement())
+  name                        String                    @unique @db.VarChar(255)
+  location                    String?
+  description                 String?
+  warehouseType               String
+  stockQty                    Int                       @default(0)
+  items                       Item[]
+  addStockAdjustments         AddStockAdjustment[]
+  givenTransferAdjustments    TransferStockAdjustment[] @relation("GivingWarehouse")
+  receivedTransferAdjustments TransferStockAdjustment[] @relation("ReceivingWarehouse")
+  createdAt                   DateTime                  @default(now())
+  updatedAt                   DateTime                  @updatedAt
+}
+
+model AddStockAdjustment {
+  id              Int       @id @default(autoincrement())
+  referenceNumber String
+  addStockQty     Int
+  notes           String?
+  warehouse       Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
+  warehouseId     Int
+  supplier        Supplier  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  supplierId      Int
+  item            Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId          Int
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([itemId])
+  @@index([supplierId])
+}
+
+model TransferStockAdjustment {
+  id                   Int       @id @default(autoincrement())
+  referenceNumber      String    @unique
+  transferStockQty     Int
+  notes                String?
+  givingWarehouse      Warehouse @relation("GivingWarehouse", fields: [givingWarehouseId], references: [id], onDelete: Cascade)
+  givingWarehouseId    Int
+  receivingWarehouse   Warehouse @relation("ReceivingWarehouse", fields: [receivingWarehouseId], references: [id], onDelete: Cascade)
+  receivingWarehouseId Int
+  item                 Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId               Int
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([itemId])
+  @@index([givingWarehouseId])
+  @@index([receivingWarehouseId])
+}
+
+model Item {
+  id                       Int                       @id @default(autoincrement())
+  title                    String                    @unique @db.VarChar(255)
+  description              String?                   @db.Text
+  category                 Category                  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId               Int
+  sku                      String                    @unique
+  barcode                  String?
+  qty                      Int
+  unit                     Unit                      @relation(fields: [unitId], references: [id])
+  unitId                   Int
+  brand                    Brand                     @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  brandId                  Int
+  sellingPrice             Int
+  buyingPrice              Int
+  supplier                 Supplier                  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  supplierId               Int
+  warehouse                Warehouse                 @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
+  warehouseId              Int
+  reOrderPoint             Int
+  imageUrl                 String
+  weight                   Int?
+  dimensions               String?
+  taxRate                  Int
+  notes                    String?
+  transferStockAdjustments TransferStockAdjustment[]
+  addStockAdjustments      AddStockAdjustment[]
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime                  @updatedAt
+
+  @@index([categoryId])
+  @@index([unitId])
+  @@index([brandId])
+  @@index([warehouseId])
+  @@index([supplierId])
+}
+
+model Supplier {
+  id                  Int                  @id @default(autoincrement())
+  name                String               @unique @db.VarChar(255)
+  phone               String?
+  email               String?
+  address             String?
+  contactPerson       String?
+  supplierCode        String               @unique
+  paymentTerms        String?
+  taxId               String?
+  notes               String?
+  items               Item[]
+  AddStockAdjustments AddStockAdjustment[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+}

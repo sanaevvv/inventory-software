@@ -5,7 +5,7 @@ type Props = {
 export const InventorySummaryCard = ({ title, number }: Props) => {
   return (
     <li
-      className="bg-white px-3 py-4 rounded-md hover:border-blue-400 border shadow"
+      className="bg-white px-3 py-4 rounded-md border shadow"
     >
       <div className="flex items-center justify-between px-4">
         <p className="text-slate-700 text-sm">{title}</p>

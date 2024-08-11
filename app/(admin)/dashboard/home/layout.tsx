@@ -6,7 +6,7 @@ const HomeLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div className="">
+  return <div>
     <HomeTabs />
     {children}
   </div>;

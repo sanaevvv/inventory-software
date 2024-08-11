@@ -15,7 +15,10 @@ import { deleteBrand } from '@/app/(admin)/dashboard/inventory/_actions/create.b
 import { deleteSupplier } from '@/app/(admin)/dashboard/inventory/_actions/create.supplier';
 import { deleteCategory } from '@/app/(admin)/dashboard/inventory/_actions/create.category';
 import { deleteItem } from '@/app/(admin)/dashboard/inventory/_actions/create.item';
-import { deleteAdjustmentAdd, deleteAdjustmentTransfer } from '@/app/(admin)/dashboard/inventory/_actions/create.adjustment';
+import {
+  deleteAdjustmentAdd,
+  deleteAdjustmentTransfer,
+} from '@/app/(admin)/dashboard/inventory/_actions/create.adjustment';
 
 type Props = {
   id: number;
@@ -29,6 +32,12 @@ type Props = {
     | 'adjustments/add'
     | 'adjustments/transfer';
 };
+
+type DeleteFunction = (id: number | string) => Promise<{
+  message: string;
+  success: boolean;
+  errors?: string;
+}>;
 
 const getDeleteFunction = (entity: Props['entity']) => {
   switch (entity) {
@@ -52,8 +61,10 @@ const getDeleteFunction = (entity: Props['entity']) => {
       throw new Error(`Unsupported entity type: ${entity}`);
   }
 };
+
 export const InventoryActions = ({ id, entity }: Props) => {
-  const deleteFunction = getDeleteFunction(entity);
+  const deleteFunction = getDeleteFunction(entity) as DeleteFunction
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

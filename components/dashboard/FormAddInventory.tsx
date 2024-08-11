@@ -6,7 +6,6 @@ import { Form } from '@/components/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormButton } from '@/components/dashboard/FormButton';
 import { FormSelect } from '@/components/dashboard/FormSelect';
-import { FormWrapper } from '@/app/(admin)/dashboard/inventory/_components/FormWrapper';
 import { adjustmentAddSchema, AdjustmentAddSchemaType } from '@/lib/schema';
 import {
   createAdjustmentAdd,

@@ -33,12 +33,6 @@ type Props = {
     | 'adjustments/transfer';
 };
 
-type DeleteFunction = (id: number | string) => Promise<{
-  message: string;
-  success: boolean;
-  errors?: string;
-}>;
-
 const getDeleteFunction = (entity: Props['entity']) => {
   switch (entity) {
     case 'warehouses':
@@ -63,7 +57,7 @@ const getDeleteFunction = (entity: Props['entity']) => {
 };
 
 export const InventoryActions = ({ id, entity }: Props) => {
-  const deleteFunction = getDeleteFunction(entity) as DeleteFunction
+  const deleteFunction = getDeleteFunction(entity)
 
   return (
     <DropdownMenu>

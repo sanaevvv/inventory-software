@@ -6,7 +6,6 @@ import { Form } from '@/components/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormButton } from '@/components/dashboard/FormButton';
 import { FormSelect } from '@/components/dashboard/FormSelect';
-import { FormWrapper } from '@/app/(admin)/dashboard/inventory/_components/FormWrapper';
 import {
   adjustmentTransferSchema,
   AdjustmentTransferSchemaType,
@@ -17,7 +16,7 @@ import {
 } from '@/app/(admin)/dashboard/inventory/_actions/create.adjustment';
 import { useRouter } from 'next/navigation';
 import { toast } from '../ui/use-toast';
-import { Item, TransferStockAdjustment, Warehouse } from '@prisma/client';
+import { TransferStockAdjustment} from '@prisma/client';
 
 type Props = {
   editValue?: TransferStockAdjustment & {

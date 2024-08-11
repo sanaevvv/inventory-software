@@ -149,10 +149,10 @@ export async function updateItem(data: ItemSchemaType) {
   }
 }
 
-export async function deleteItem(id: string) {
+export async function deleteItem(id: number) {
   try {
     const deleteItem = await prisma.item.delete({
-      where: { id: Number(id) },
+      where: { id },
     });
 
     revalidatePath('/dashboard/inventory/items');

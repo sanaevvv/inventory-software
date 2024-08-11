@@ -9,7 +9,7 @@ import { FormAddInventory } from '@/components/dashboard/FormAddInventory';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const AddEditPage = async ({
+const AddEditPage = async ({
   params: { addId },
 }: {
   params: { addId: string };

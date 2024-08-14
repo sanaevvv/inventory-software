@@ -8,6 +8,6 @@ const InventoryDashboardPage = () => {
       <SalesOverview />
     </div>
   );
-}
+};
 
-export default InventoryDashboardPage
+export default InventoryDashboardPage;

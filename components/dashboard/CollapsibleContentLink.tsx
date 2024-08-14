@@ -14,7 +14,11 @@ export const CollapsibleContentLink = ({ links }: Props) => {
     <CollapsibleContent className="flex flex-col gap-1 pl-8">
       <ul>
         {links.map(({ label, href }) => (
-          <CollapsibleLink key={label} label={label} href={href} />
+          <CollapsibleLink
+            key={label}
+            label={label}
+            href={href}
+          />
         ))}
       </ul>
     </CollapsibleContent>

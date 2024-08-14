@@ -1,15 +1,22 @@
+import { auth } from '@/auth';
 import HomeTabs from '@/components/dashboard/HomeTabs';
-import React from 'react'
+import React from 'react';
 
-const HomeLayout = ({
+const HomeLayout = async ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div>
-    <HomeTabs />
-    {children}
-  </div>;
+  const session = await auth();
+  if (!session) return null;
+  const username = session.user?.name ?? '';
+
+  return (
+    <div>
+      <HomeTabs user={username} />
+      {children}
+    </div>
+  );
 };
 
-export default HomeLayout
+export default HomeLayout;

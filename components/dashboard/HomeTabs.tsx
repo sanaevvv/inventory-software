@@ -1,5 +1,7 @@
-'use client'
+'use client';
 
+import { auth } from '@/auth';
+import { Session } from 'next-auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,9 +25,14 @@ const Tabs = [
   },
 ];
 
-const HomeTabs = () => {
+type Props = {
+  user: string
+};
+
+const HomeTabs = ({ user }: Props) => {
   const pathname = usePathname();
-  return (
+
+    return(
     <div
       className="bg-repeat p-8 border-b"
       style={{
@@ -35,7 +42,7 @@ const HomeTabs = () => {
       }}
     >
       <div className="mb-6">
-        <p className="font-semibold text-xl text-slate-700">Hello, Demo User</p>
+        <p className="font-semibold text-xl text-slate-700">Hello, {user}</p>
         <p className="text-muted-foreground">Demo Org</p>
       </div>
       <ul className="flex gap-6 pb-3">

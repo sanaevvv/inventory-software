@@ -149,33 +149,34 @@ export const Sidebar = () => {
     switch (label) {
       case 'Inventory':
         return (
-          <Collapsible>
+          <Collapsible className="font-light">
             <TriggerLink icon={Icon} label={label} arrow={arrow} />
             <ContentLink links={InventoryList} />
           </Collapsible>
         );
       case 'Sales':
         return (
-          <Collapsible>
+          <Collapsible className="font-light">
             <TriggerLink icon={Icon} label={label} arrow={arrow} />
             <ContentLink links={SalesList} />
           </Collapsible>
         );
       case 'Purchases':
         return (
-          <Collapsible>
+          <Collapsible className="font-light">
             <TriggerLink icon={Icon} label={label} arrow={arrow} />
-            <ContentLink links={InventoryList} />
+            <ContentLink links={InventoryList}/>
           </Collapsible>
         );
       default:
         return (
           <Link href={href}>
             <Button
-              className={`justify-start text-base hover:bg-white/80 hover:text-primary transition-all rounded-sm w-full bg-transparent`}
+              variant={'ghost'}
+              className={`hover:bg-white/70 hover:rounded hover:font-normal w-full justify-start text-base transition-all`}
             >
-              <Icon strokeWidth={1.2} className="mr-4" />
-              {label}
+              <Icon strokeWidth={1} className="mr-4" />
+              <span className="font-light">{label}</span>
             </Button>
           </Link>
         );
@@ -194,7 +195,7 @@ export const Sidebar = () => {
               alt="logo"
             />
             <p className="text-neutral-400 text-xs pt-0.5">
-              飲食店用在庫システム
+              飲食店在庫システム
             </p>
         </Link>
       </div>
@@ -204,9 +205,7 @@ export const Sidebar = () => {
           {NavLink.map(({ icon, label, href, arrow }) => (
             <li
               key={label}
-              className={`relative ${
-                pathname === href ? 'bg-pink-600/80 rounded-sm' : ''
-              }`}
+              className='relative'
             >
               <>{renderContent(icon, label, href, arrow)}</>
             </li>

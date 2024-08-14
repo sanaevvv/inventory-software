@@ -12,16 +12,14 @@ export const CollapsibleLink = ({ label, href }: Props) => {
   const pathname = usePathname();
   return (
     <li
-      className={`${
-        pathname === href
-          ? 'bg-pink-600/80 rounded-sm'
-          : ''
+      className={`rounded hover:rounded ${
+        pathname === href ? 'bg-white/70 text-slate-800' : ''
       }`}
     >
       <Link href={href}>
         <Button
           variant="ghost"
-          className="hover:bg-white/80 justify-start w-full text-base pl-6 rounded-sm"
+          className={`justify-start text-base pl-6 w-full font-light hover:bg-white/70`}
         >
           {label}
         </Button>

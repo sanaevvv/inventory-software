@@ -13,15 +13,6 @@ export const FormButton = ({ form, children, className }: Props) => {
   const { isSubmitting, isValid, isDirty } = form.formState;
   const isDisabled = isSubmitting || !isDirty || !isValid;
 
-  {
-    console.log('Form State:', {
-      isSubmitting,
-      isValid,
-      isDirty,
-      values: form.getValues(),
-      errors: form.formState.errors,
-    });
-  }
   return (
     <Button
       disabled={isDisabled}

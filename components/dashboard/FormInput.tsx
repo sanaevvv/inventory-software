@@ -19,6 +19,7 @@ type Props = {
   form: UseFormReturn<any>;
   className?: string;
   readOnly?: boolean;
+  description?: string;
 };
 
 export const FormInput = ({
@@ -28,7 +29,8 @@ export const FormInput = ({
   type,
   form,
   className,
-  readOnly = false
+  readOnly = false,
+  description
 }: Props) => {
   return (
     <FormField
@@ -60,6 +62,9 @@ export const FormInput = ({
               />
             )}
           </FormControl>
+
+          {description && <p className="text-xs">{description}</p>}
+
           <FormMessage />
         </FormItem>
       )}

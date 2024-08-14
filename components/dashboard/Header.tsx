@@ -1,10 +1,8 @@
 import {
   Bell,
   ChevronDown,
-  CirclePlus,
   Grip,
   History,
-  Menu,
   Settings,
   Users,
 } from 'lucide-react';
@@ -19,6 +17,8 @@ import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlusIcon } from './PlusIcon';
 import { SpMenu } from './SpMenu';
+import { auth } from '@/auth';
+import { HeaderDrop } from './HeaderDropdown';
 
 const Icons = [
   {
@@ -35,7 +35,10 @@ const Icons = [
   },
 ];
 
-export const Header = () => {
+export const Header = async () => {
+  const session = await auth();
+  if (!session?.user) return null;
+
   return (
     <header className="bg-slate-50 border-b shadow-sm flex items-center justify-between px-6 py-4 sm:py-3 md:py-2 lg:py-1">
       <div className="hidden md:flex items-center gap-4">
@@ -77,26 +80,29 @@ export const Header = () => {
 
         <Separator orientation="vertical" />
 
-        <div className="flex items-center gap-1">
-          Garat
-          <ChevronDown className="stroke-slate-600 size-4" />
-        </div>
+        <HeaderDrop username={session.user.name} />
 
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-
+        {session.user.image ? (
+          <Avatar>
+            <AvatarImage src={session.user.image} />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        ) : (
+          ''
+        )}
         <Grip />
       </div>
       <div className="flex justify-between w-full md:hidden">
         <SpMenu />
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        {session.user.image ? (
+          <Avatar>
+            <AvatarImage src={session.user.image} />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        ) : (
+          ''
+        )}
       </div>
-
     </header>
   );
 };

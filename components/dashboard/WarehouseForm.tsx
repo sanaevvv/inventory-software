@@ -13,7 +13,7 @@ import {
   createWarehouse,
   updateWarehouse,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.warehouse';
-// import { Warehouse } from '@prisma/client';
+import { Warehouse } from '@prisma/client';
 
 export const warehouseTypes = [
   { value: 'frozen', text: '冷凍倉庫' },
@@ -22,7 +22,7 @@ export const warehouseTypes = [
 ];
 
 type Props = {
-  editValue?: WarehouseSchemaType;
+  editValue?: Warehouse;
 };
 
 export const WarehouseForm = ({ editValue }: Props) => {

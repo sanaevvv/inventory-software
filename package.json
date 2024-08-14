@@ -31,6 +31,7 @@
     "@tanstack/react-table": "^8.19.3",
     "@types/bcryptjs": "^2.4.6",
     "@uploadthing/react": "^6.7.2",
+    "@vercel/next": "^4.3.6",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -42,10 +43,11 @@
     "react-day-picker": "8.10.1",
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",
+    "string-width": "^7.2.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^6.13.2",
-    "wide-align": "",
+    "wide-align": "^1.1.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -61,8 +63,5 @@
     "prisma": "^5.18.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  },
-  "overrides": {
-    "string-width": "^4.2.3"
   }
 }

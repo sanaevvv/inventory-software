@@ -1,6 +1,5 @@
 import { auth } from '@/auth';
 import HomeTabs from '@/components/dashboard/HomeTabs';
-import React from 'react';
 
 const HomeLayout = async ({
   children,

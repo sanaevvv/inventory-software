@@ -6,7 +6,6 @@ import { DataTable } from './data-table';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-
 export default async function ItemsPage() {
   const itemData = await getItems();
 

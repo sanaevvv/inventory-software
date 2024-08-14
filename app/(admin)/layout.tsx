@@ -1,6 +1,5 @@
 import { Header } from '@/components/dashboard/Header';
 import { Sidebar } from '@/components/dashboard/Sidebar';
-import React from 'react';
 
 const AdminLayout = ({
   children,

@@ -14,11 +14,6 @@ export const columns: ColumnDef<Unit>[] = [
     accessorKey: 'abbreviation',
     header: 'Abbreviation',
   },
-  // {
-  //   accessorKey: 'createdAt',
-  //   header: 'createdAt',
-  //   cell: ({ row }) => <InventoryDate date={row.original.createdAt} />,
-  // },
   {
     id: 'actions',
     cell:({row})=><InventoryActions id={row.original.id} entity='units'/>

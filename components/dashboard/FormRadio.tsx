@@ -1,8 +1,6 @@
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-import React from 'react';
-
 export const FormRadio = () => {
   return (
     <RadioGroup defaultValue="option-one">

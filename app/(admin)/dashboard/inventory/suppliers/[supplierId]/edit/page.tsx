@@ -1,7 +1,6 @@
 import { FormWrapper } from '../../../_components/FormWrapper';
 import { getSupplierById } from '../../../_actions/get.adjustment';
 import { SupplierForm } from '@/components/dashboard/SupplierForm';
-import { TableWrapper } from '@/components/dashboard/TableWrapper';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const AnnouncementsPage = () => {
   return (
     <div>AnnouncementPage</div>

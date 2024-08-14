@@ -1,6 +1,5 @@
 import {
   Bell,
-  ChevronDown,
   Grip,
   History,
   Settings,

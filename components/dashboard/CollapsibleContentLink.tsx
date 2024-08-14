@@ -1,4 +1,3 @@
-import React from 'react';
 import { CollapsibleContent } from '../ui/collapsible';
 import { CollapsibleLink } from './CollapsibleLink';
 

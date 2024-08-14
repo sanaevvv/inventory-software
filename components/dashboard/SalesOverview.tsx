@@ -1,5 +1,4 @@
 import { CircleCheck, PackageCheck, ReceiptText, Truck } from 'lucide-react';
-import React from 'react'
 import { Separator } from '../ui/separator';
 import { InventorySummaryCard } from './InventorySummaryCard';
 import { ActivityCard } from './ActivityCard';

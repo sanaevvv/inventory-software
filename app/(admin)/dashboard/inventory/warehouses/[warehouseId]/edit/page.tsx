@@ -4,8 +4,6 @@ import { WarehouseForm } from '@/components/dashboard/WarehouseForm';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const runtime = 'edge';
-
 const WarehouseEditPage = async ({
   params: { warehouseId },
 }: {

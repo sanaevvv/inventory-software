@@ -2,8 +2,6 @@ import { getBrand } from '../../../_actions/get.adjustment';
 import { BrandForm } from '@/components/dashboard/BrandForm';
 import { FormWrapper } from '../../../_components/FormWrapper';
 
-export const runtime = 'edge';
-
 const BrandEditPage = async ({
   params: { brandId },
 }: {

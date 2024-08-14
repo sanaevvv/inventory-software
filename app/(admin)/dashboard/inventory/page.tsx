@@ -1,8 +1,6 @@
 import { ItemCard } from "@/components/dashboard/ItemCard"
 import { Barcode, Container, Factory, Group, LayoutList, PackagePlus, Vegan } from "lucide-react"
 
-export const runtime = 'edge';
-
 const items = [
   {
     title: 'Items',

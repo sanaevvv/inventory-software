@@ -4,8 +4,6 @@ import { SupplierForm } from '@/components/dashboard/SupplierForm';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const runtime = 'edge';
-
 const SupplierEditPage = async ({
   params: { supplierId },
 }: {

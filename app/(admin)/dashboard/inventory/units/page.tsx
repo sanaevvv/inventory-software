@@ -6,8 +6,6 @@ import { DataTable } from './data-table';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const runtime = 'edge';
-
 export default async function UnisPage() {
   const unitsData = await getUnits();
 

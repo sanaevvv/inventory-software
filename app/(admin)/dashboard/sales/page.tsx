@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 const SalesPage = () => {
   return <div>SalesPage</div>;
 };

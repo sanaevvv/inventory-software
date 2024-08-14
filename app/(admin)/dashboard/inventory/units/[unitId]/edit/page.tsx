@@ -4,8 +4,6 @@ import { FormWrapper } from '../../../_components/FormWrapper';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
-export const runtime = 'edge';
-
 const UnitEditPage = async ({
   params: { unitId },
 }: {

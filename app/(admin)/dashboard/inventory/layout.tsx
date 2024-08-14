@@ -1,7 +1,5 @@
 import { InventoryHeader } from '@/components/dashboard/InventoryHeader';
 
-export const runtime = 'edge';
-
 const InventoryLayout = ({
   children,
 }: Readonly<{

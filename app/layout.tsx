@@ -4,8 +4,6 @@ import { cn } from '@/lib/utils';
 import "./globals.css";
 import { Toaster } from '@/components/ui/toaster';
 
-export const runtime = 'edge';
-
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',

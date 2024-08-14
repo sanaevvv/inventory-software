@@ -1,8 +1,6 @@
 import { Header } from '@/components/dashboard/Header';
 import { Sidebar } from '@/components/dashboard/Sidebar';
 
-export const runtime = 'edge';
-
 const AdminLayout = ({
   children,
 }: Readonly<{

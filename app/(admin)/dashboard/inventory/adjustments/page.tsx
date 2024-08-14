@@ -7,8 +7,6 @@ import { TableWrapper } from '@/components/dashboard/TableWrapper';
 import { FormWrapper } from '../_components/FormWrapper';
 import Loading from '@/components/Loading';
 
-export const runtime = 'edge';
-
 export default async function AdjustmentsPage() {
   const transferData = await getTransfer();
   const addAdjustmentData = await getAdjustmentAdd();

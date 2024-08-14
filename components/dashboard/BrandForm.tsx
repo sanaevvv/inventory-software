@@ -12,10 +12,10 @@ import {
   createBrand,
   updateBrand,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.brand';
-import { Brand } from '@prisma/client';
+// import { Brand } from '@prisma/client';
 
 type Props = {
-  editValue?: Brand;
+  editValue?: BrandSchemaType;
 };
 
 export const BrandForm = ({ editValue }: Props) => {

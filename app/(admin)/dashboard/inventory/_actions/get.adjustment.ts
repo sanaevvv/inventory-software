@@ -148,7 +148,7 @@ export async function getItemById(id: string) {
       warehouse: {
         select: {
           name: true,
-        }
+        },
       },
       category: {
         select: {
@@ -228,8 +228,8 @@ export async function getAdjustmentAdd() {
     include: {
       item: true,
       supplier: true,
-      warehouse: true
-    }
+      warehouse: true,
+    },
   });
 }
 export async function getTransfer() {
@@ -240,7 +240,7 @@ export async function getTransfer() {
     include: {
       item: true,
       givingWarehouse: true,
-      receivingWarehouse: true
+      receivingWarehouse: true,
     },
   });
 }

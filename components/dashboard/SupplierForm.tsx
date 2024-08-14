@@ -12,10 +12,10 @@ import {
   createSupplier,
   updateSupplier,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.supplier';
-// import { Supplier } from '@prisma/client';
+import { Supplier } from '@prisma/client';
 
 type Props = {
-  editValue?: SuppliersSchemaType;
+  editValue?: Supplier;
 };
 
 export const SupplierForm = ({ editValue }: Props) => {

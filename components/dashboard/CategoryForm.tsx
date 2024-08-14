@@ -12,10 +12,10 @@ import {
   createCategory,
   updateCategory,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.category';
-// import { Category } from '@prisma/client';
+import { Category } from '@prisma/client';
 
 type Props = {
-  editValue?: CategorySchemaType;
+  editValue?: Category;
 };
 export const CategoryForm = ({ editValue }: Props) => {
   const { toast } = useToast();

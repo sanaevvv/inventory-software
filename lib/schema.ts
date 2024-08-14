@@ -112,7 +112,7 @@ export const adjustmentTransferSchema = z.object({
   notes: z.string().optional(),
   item: z.string(),
   givingWarehouse: z.string(),
-  receivingWarehouse: z.string()
+  receivingWarehouse: z.string(),
 });
 
 export type AdjustmentTransferSchemaType = z.infer<
@@ -173,3 +173,38 @@ export const suppliersSchema = z.object({
 });
 
 export type SuppliersSchemaType = z.infer<typeof suppliersSchema>;
+
+export const registerSchema = z.object({
+  username: z.string().min(2, {
+    message: 'Username must be at least 2 characters.',
+  }),
+  email: z.string().email({
+    message: 'Invalid email address.',
+  }),
+  password: z
+    .string()
+    .min(8, {
+      message: 'Password must be at least 8 characters long.',
+    })
+    .max(100, {
+      message: 'Password must be at most 100 characters long.',
+    }),
+});
+
+export type RegisterSchemaType = z.infer<typeof registerSchema>;
+
+export const signinSchema = z.object({
+  email: z.string().email({
+    message: 'Invalid email address.',
+  }),
+  password: z
+    .string()
+    .min(8, {
+      message: 'Password must be at least 8 characters long.',
+    })
+    .max(100, {
+      message: 'Password must be at most 100 characters long.',
+    }),
+});
+
+export type SigninSchemaType = z.infer<typeof signinSchema>;

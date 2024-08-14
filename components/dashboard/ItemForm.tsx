@@ -12,12 +12,12 @@ import {
   createItem,
   updateItem,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.item';
-import { Item } from '@prisma/client';
+// import { Item } from '@prisma/client';
 import { FormImage } from './FormImage';
 import { FormSelect } from './FormSelect';
 
 type Props = {
-  editValue?: Item & {
+  editValue?: ItemSchemaType & {
     category: {
       title: string;
     };

@@ -1,7 +1,7 @@
 'use client';
 
 import { CreditCard, X } from 'lucide-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 
 export const DashboardBanner = () => {

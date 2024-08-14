@@ -16,10 +16,10 @@ import {
 } from '@/app/(admin)/dashboard/inventory/_actions/create.adjustment';
 import { useRouter } from 'next/navigation';
 import { toast } from '../ui/use-toast';
-import { TransferStockAdjustment} from '@prisma/client';
+// import { TransferStockAdjustment} from '@prisma/client';
 
 type Props = {
-  editValue?: TransferStockAdjustment & {
+  editValue?: AdjustmentTransferSchemaType & {
     givingWarehouse: {
       name: string;
     };

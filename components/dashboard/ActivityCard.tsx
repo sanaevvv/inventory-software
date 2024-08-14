@@ -25,7 +25,7 @@ export const ActivityCard = ({
         <span className="text-slate-400 font-semibold text-sm">{unit}</span>
       </Link>
       <div className="flex justify-center items-center gap-1 text-slate-700 text-sm">
-        <Icon strokeWidth={1} />
+        <Icon className="stroke-[1px]" />
         <p>{text}</p>
       </div>
     </li>

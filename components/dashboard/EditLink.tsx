@@ -10,7 +10,8 @@ export const EditLink = ({ id, entity }:Props) => {
   return (
     <Link href={`/dashboard/inventory/${entity}/${id}/edit`}>
       <Button variant="ghost" className="w-full justify-between">
-        Edit <FilePenLine strokeWidth={1.7} size={20} />
+        Edit{' '}
+        <FilePenLine className="stroke-[1.7px]" size={20} />
       </Button>
     </Link>
   );

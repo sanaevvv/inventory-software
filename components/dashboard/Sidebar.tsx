@@ -174,7 +174,7 @@ export const Sidebar = () => {
               variant={'ghost'}
               className={`hover:bg-white/70 hover:rounded hover:font-normal w-full justify-start text-base transition-all`}
             >
-              <Icon strokeWidth={1} className="mr-4" />
+              <Icon className="mr-4 stroke-[1px]" />
               <span className="font-light">{label}</span>
             </Button>
           </Link>

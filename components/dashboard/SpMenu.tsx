@@ -52,7 +52,7 @@ export const SpMenu = () => {
             <Button
               className={`justify-start text-base hover:bg-white/80 hover:text-primary transition-all rounded-sm w-full bg-transparent`}
             >
-              <Icon strokeWidth={1.2} className="mr-4" />
+              <Icon className="mr-4 stroke-[1.2px]" />
               {label}
             </Button>
           </Link>

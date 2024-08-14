@@ -26,7 +26,7 @@ export const ItemCard = ({
     >
       <p className="font-bold text-2xl text-slate-700">{title}</p>
 
-      <Icon size={72} strokeWidth={1} className="text-slate-700" />
+      <Icon size={72} className="text-slate-700 stroke-[1px]" />
 
       <p className="text-slate-700 px-6 text-center">{body}</p>
 

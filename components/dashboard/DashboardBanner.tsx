@@ -17,7 +17,7 @@ export const DashboardBanner = () => {
     >
       <div className="grid place-items-center">
         <div className="bg-pink-50/80 rounded-xl px-6 py-5">
-          <CreditCard size={50} strokeWidth={1} className="text-pink-600/80" />
+          <CreditCard size={50} className="text-pink-600/80 stroke-[1px]" />
         </div>
       </div>
       <div className="">
@@ -36,7 +36,7 @@ export const DashboardBanner = () => {
         className="absolute right-2 top-2 bg-transparent hover:bg-transparent"
         onClick={() => setIsShow(true)}
       >
-        <X className="text-slate-700" strokeWidth={1} />
+        <X className="text-slate-700 stroke-[1px]" />
       </Button>
     </section>
   );

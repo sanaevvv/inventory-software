@@ -52,7 +52,7 @@ export const DeleteButton = ({ id, onDelete}: Props) => {
       disabled={isDeleting}
     >
       {isDeleting ? 'Deleting...' : 'Delete Button'}
-      <Trash2 strokeWidth={1.4} size={22} />
+      <Trash2 className="stroke-[1.4px]" size={22} />
     </Button>
   );
 };

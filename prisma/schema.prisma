@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
@@ -26,26 +23,26 @@ model Category {
   id          Int      @id @default(autoincrement())
   title       String   @unique @db.VarChar(255)
   description String?
-  item        Item[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  item        Item[]
 }
 
 model Unit {
   id           Int      @id @default(autoincrement())
   title        String   @unique @db.VarChar(255)
   abbreviation String
-  item         Item[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  item         Item[]
 }
 
 model Brand {
   id        Int      @id @default(autoincrement())
   brandname String   @unique @db.VarChar(255)
-  items     Item[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  items     Item[]
 }
 
 model Warehouse {
@@ -55,12 +52,12 @@ model Warehouse {
   description                 String?
   warehouseType               String
   stockQty                    Int                       @default(0)
-  items                       Item[]
-  addStockAdjustments         AddStockAdjustment[]
-  givenTransferAdjustments    TransferStockAdjustment[] @relation("GivingWarehouse")
-  receivedTransferAdjustments TransferStockAdjustment[] @relation("ReceivingWarehouse")
   createdAt                   DateTime                  @default(now())
   updatedAt                   DateTime                  @updatedAt
+  addStockAdjustments         AddStockAdjustment[]
+  items                       Item[]
+  givenTransferAdjustments    TransferStockAdjustment[] @relation("GivingWarehouse")
+  receivedTransferAdjustments TransferStockAdjustment[] @relation("ReceivingWarehouse")
 }
 
 model AddStockAdjustment {
@@ -68,14 +65,14 @@ model AddStockAdjustment {
   referenceNumber String
   addStockQty     Int
   notes           String?
-  warehouse       Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
   warehouseId     Int
-  supplier        Supplier  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
   supplierId      Int
-  item            Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
   itemId          Int
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
+  item            Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  supplier        Supplier  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  warehouse       Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
 
   @@index([itemId])
   @@index([supplierId])
@@ -86,14 +83,14 @@ model TransferStockAdjustment {
   referenceNumber      String    @unique
   transferStockQty     Int
   notes                String?
-  givingWarehouse      Warehouse @relation("GivingWarehouse", fields: [givingWarehouseId], references: [id], onDelete: Cascade)
   givingWarehouseId    Int
-  receivingWarehouse   Warehouse @relation("ReceivingWarehouse", fields: [receivingWarehouseId], references: [id], onDelete: Cascade)
   receivingWarehouseId Int
-  item                 Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
   itemId               Int
   createdAt            DateTime  @default(now())
   updatedAt            DateTime  @updatedAt
+  givingWarehouse      Warehouse @relation("GivingWarehouse", fields: [givingWarehouseId], references: [id], onDelete: Cascade)
+  item                 Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  receivingWarehouse   Warehouse @relation("ReceivingWarehouse", fields: [receivingWarehouseId], references: [id], onDelete: Cascade)
 
   @@index([itemId])
   @@index([givingWarehouseId])
@@ -103,21 +100,16 @@ model TransferStockAdjustment {
 model Item {
   id                       Int                       @id @default(autoincrement())
   title                    String                    @unique @db.VarChar(255)
-  description              String?                   @db.Text
-  category                 Category                  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  description              String?
   categoryId               Int
   sku                      String                    @unique
   barcode                  String?
   qty                      Int
-  unit                     Unit                      @relation(fields: [unitId], references: [id])
   unitId                   Int
-  brand                    Brand                     @relation(fields: [brandId], references: [id], onDelete: Cascade)
   brandId                  Int
   sellingPrice             Int
   buyingPrice              Int
-  supplier                 Supplier                  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
   supplierId               Int
-  warehouse                Warehouse                 @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
   warehouseId              Int
   reOrderPoint             Int
   imageUrl                 String
@@ -125,10 +117,15 @@ model Item {
   dimensions               String?
   taxRate                  Int
   notes                    String?
-  transferStockAdjustments TransferStockAdjustment[]
-  addStockAdjustments      AddStockAdjustment[]
   createdAt                DateTime                  @default(now())
   updatedAt                DateTime                  @updatedAt
+  addStockAdjustments      AddStockAdjustment[]
+  brand                    Brand                     @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  category                 Category                  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  supplier                 Supplier                  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  unit                     Unit                      @relation(fields: [unitId], references: [id])
+  warehouse                Warehouse                 @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
+  transferStockAdjustments TransferStockAdjustment[]
 
   @@index([categoryId])
   @@index([unitId])
@@ -148,8 +145,8 @@ model Supplier {
   paymentTerms        String?
   taxId               String?
   notes               String?
-  items               Item[]
-  AddStockAdjustments AddStockAdjustment[]
   createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
+  AddStockAdjustments AddStockAdjustment[]
+  items               Item[]
 }

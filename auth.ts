@@ -1,10 +1,8 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import prisma from './lib/prisma';
 import { getUserByEmail } from './components/auth/_actions';
 import { signinSchema } from './lib/schema';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import { compare } from 'bcryptjs';
+import argon2 from 'argon2';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   // adapter: PrismaAdapter(prisma),
@@ -19,7 +17,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         // let user: User | null = null;
-
         const validatedFields = signinSchema.safeParse(credentials);
 
         if (validatedFields.success) {
@@ -29,18 +26,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (!existingUser || !existingUser.hashedPassword) {
             throw new Error('ユーザーが存在しません。');
           }
-          // console.log('existingUser',existingUser);
-          const passwordsMatch = await compare(
-            password,
-            existingUser.hashedPassword
+
+          const passwordsMatch = await argon2.verify(
+            existingUser.hashedPassword,
+            password
           );
-          // console.log(passwordsMatch);
+
           const { hashedPassword, ...user } = existingUser;
-          console.log(user);
 
           if (passwordsMatch) return user;
         }
-
         return null;
       },
     }),

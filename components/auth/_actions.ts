@@ -2,8 +2,8 @@
 
 import prisma from '@/lib/prisma';
 import { registerSchema, RegisterSchemaType } from '@/lib/schema';
-import bcrypt from 'bcryptjs';
 import { signOut } from '@/auth';
+import argon2 from 'argon2';
 
 export async function user(data: RegisterSchemaType) {
   const result = registerSchema.safeParse(data);
@@ -30,7 +30,7 @@ export async function user(data: RegisterSchemaType) {
     }
 
     // パスワードのハッシュ化
-    const hashedPassword = await bcrypt.hash(result.data.password, 10);
+    const hashedPassword = await argon2.hash(result.data.password);
 
     // ユーザーの作成
     const newUser = await prisma.user.create({

@@ -1,7 +1,7 @@
-const GettingStartedPage = () => {
-  return (
-    <div>GettingStartedPage</div>
-  )
-}
+export const runtime = 'edge';
 
-export default GettingStartedPage
+const GettingStartedPage = () => {
+  return <div>GettingStartedPage</div>;
+};
+
+export default GettingStartedPage;

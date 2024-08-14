@@ -1,7 +1,7 @@
-const PurchasesPage = () => {
-  return (
-    <div>PurchasesPage</div>
-  )
-}
+export const runtime = 'edge';
 
-export default PurchasesPage
+const PurchasesPage = () => {
+  return <div>PurchasesPage</div>;
+};
+
+export default PurchasesPage;

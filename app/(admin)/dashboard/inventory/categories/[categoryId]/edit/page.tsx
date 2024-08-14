@@ -2,6 +2,8 @@ import { FormWrapper } from '../../../_components/FormWrapper';
 import { getCategoryById } from '../../../_actions/get.adjustment';
 import { CategoryForm } from '@/components/dashboard/CategoryForm';
 
+export const runtime = 'edge';
+
 const CategoryEditPage = async ({
   params: { categoryId },
 }: {

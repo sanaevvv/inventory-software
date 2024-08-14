@@ -6,6 +6,8 @@ import Loading from '@/components/Loading';
 import { FormWrapper } from '../_components/FormWrapper';
 import { TableWrapper } from '@/components/dashboard/TableWrapper';
 
+export const runtime = 'edge';
+
 export default async function WarehousePage() {
   const warehouseData = await getWarehouses();
 

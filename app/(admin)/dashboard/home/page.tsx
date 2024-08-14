@@ -1,7 +1,7 @@
-const updatePage = () => {
-  return (
-    <div>page</div>
-  )
-}
+export const runtime = 'edge';
 
-export default updatePage
+const updatePage = () => {
+  return <div>page</div>;
+};
+
+export default updatePage;

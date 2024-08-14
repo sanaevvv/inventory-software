@@ -9,6 +9,8 @@ import { FormAddInventory } from '@/components/dashboard/FormAddInventory';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
+export const runtime = 'edge';
+
 const AddEditPage = async ({
   params: { addId },
 }: {

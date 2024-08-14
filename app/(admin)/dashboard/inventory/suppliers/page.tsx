@@ -6,6 +6,8 @@ import { DataTable } from './data-table';
 import Loading from '@/components/Loading';
 import { Suspense } from 'react';
 
+export const runtime = 'edge';
+
 export default async function SuppliersPage() {
   const supplierData = await getSuppliers();
 

@@ -11,6 +11,8 @@ import { ItemForm } from '@/components/dashboard/ItemForm';
 import { Suspense } from 'react';
 import Loading from '@/components/Loading';
 
+export const runtime = 'edge';
+
 const ItemEditPage = async ({
   params: { itemId },
 }: {

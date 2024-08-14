@@ -1,7 +1,7 @@
-const SalesPage = () => {
-  return (
-    <div>SalesPage</div>
-  )
-}
+export const runtime = 'edge';
 
-export default SalesPage
+const SalesPage = () => {
+  return <div>SalesPage</div>;
+};
+
+export default SalesPage;

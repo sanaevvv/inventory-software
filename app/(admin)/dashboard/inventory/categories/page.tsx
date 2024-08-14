@@ -4,6 +4,8 @@ import { FormWrapper } from '../_components/FormWrapper';
 import { columns } from './columns';
 import { DataTable } from './data-table';
 
+export const runtime = 'edge';
+
 export default async function CategoriesPage() {
   const categoryData = await getCategories();
 

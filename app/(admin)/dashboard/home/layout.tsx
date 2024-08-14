@@ -1,5 +1,6 @@
 import { auth } from '@/auth';
 import HomeTabs from '@/components/dashboard/HomeTabs';
+export const runtime = 'edge';
 
 const HomeLayout = async ({
   children,

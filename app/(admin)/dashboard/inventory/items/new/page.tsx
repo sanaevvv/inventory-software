@@ -10,6 +10,8 @@ import {
   getFormattedWarehouses,
 } from '../../_actions/get.adjustment';
 
+export const runtime = 'edge';
+
 const NewItemPage = async () => {
   const [warehouses, categories, brands, units, suppliers] = await Promise.all([
     getFormattedWarehouses(),

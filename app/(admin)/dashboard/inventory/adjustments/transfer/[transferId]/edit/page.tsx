@@ -4,6 +4,8 @@ import { FormWrapper } from '../../../../_components/FormWrapper';
 import { FormTransferInventory } from '@/components/dashboard/FormTransferInventory';
 import Loading from '@/components/Loading';
 
+export const runtime = 'edge';
+
 const TransferEditPage = async ({
   params: { transferId },
 }: {

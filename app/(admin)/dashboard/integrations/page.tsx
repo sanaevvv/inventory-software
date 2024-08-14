@@ -1,7 +1,7 @@
-const IntegrationsPage = () => {
-  return (
-    <div>IntegrationsPage</div>
-  )
-}
+export const runtime = 'edge';
 
-export default IntegrationsPage
+const IntegrationsPage = () => {
+  return <div>IntegrationsPage</div>;
+};
+
+export default IntegrationsPage;

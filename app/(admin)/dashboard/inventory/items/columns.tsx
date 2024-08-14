@@ -7,6 +7,7 @@ import {
 import { InventoryActions } from '@/components/dashboard/InventoryActions';
 import { InventoryDate } from '@/components/dashboard/InventoryDate';
 import { InventoryImage } from '@/components/dashboard/InventoryImage';
+// import { ItemSchemaType } from '@/lib/schema';
 
 type ItemType = Item & {
   category: {
@@ -55,6 +56,6 @@ export const columns: ColumnDef<ItemType>[] = [
   },
   {
     id: 'actions',
-    cell: ({ row }) => <InventoryActions id={row.original.id} entity="items" />,
+    cell: ({ row }) => <InventoryActions id={row.original.id!} entity="items" />,
   },
 ];

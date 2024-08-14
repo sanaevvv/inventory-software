@@ -2,9 +2,10 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { InventoryActions } from '@/components/dashboard/InventoryActions';
-import { Supplier } from '@prisma/client';
+import { SuppliersSchemaType } from '@/lib/schema';
+// import { Supplier } from '@prisma/client';
 
-export const columns: ColumnDef<Supplier>[] = [
+export const columns: ColumnDef<SuppliersSchemaType>[] = [
   {
     accessorKey: 'name',
     header: 'Name',
@@ -23,6 +24,6 @@ export const columns: ColumnDef<Supplier>[] = [
   },
   {
     id: 'actions',
-    cell: ({ row }) => <InventoryActions id={row.original.id } entity='suppliers'/>
+    cell: ({ row }) => <InventoryActions id={row.original.id!} entity='suppliers'/>
   },
 ];

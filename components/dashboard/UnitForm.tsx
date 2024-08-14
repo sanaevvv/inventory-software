@@ -12,10 +12,10 @@ import {
   createUnit,
   updateUnit,
 } from '@/app/(admin)/dashboard/inventory/_actions/create.unit';
-import { Unit } from '@prisma/client';
+// import { Unit } from '@prisma/client';
 
 type Props = {
-  editValue?: Unit;
+  editValue?: UnitSchemaType;
 };
 
 export const UnitForm = ({ editValue }: Props) => {

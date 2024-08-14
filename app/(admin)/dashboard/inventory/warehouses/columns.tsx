@@ -1,11 +1,12 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { Warehouse } from '@prisma/client';
+// import { Warehouse } from '@prisma/client';
 import { InventoryActions } from '@/components/dashboard/InventoryActions';
 import { warehouseTypes } from '@/components/dashboard/WarehouseForm';
+import { WarehouseSchemaType } from '@/lib/schema';
 
-export const columns: ColumnDef<Warehouse>[] = [
+export const columns: ColumnDef<WarehouseSchemaType>[] = [
   {
     accessorKey: 'name',
     header: 'Warehouse Name',
@@ -31,7 +32,7 @@ export const columns: ColumnDef<Warehouse>[] = [
   {
     id: 'actions',
     cell: ({ row }) => (
-      <InventoryActions id={row.original.id} entity="warehouses" />
+      <InventoryActions id={row.original.id!} entity="warehouses" />
     ),
   },
 ];
